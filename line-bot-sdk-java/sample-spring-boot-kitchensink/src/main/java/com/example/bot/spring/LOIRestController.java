@@ -36,7 +36,7 @@ public class LOIRestController {
         //String userIDs = "Ubac5b3a0bfba18e114afbc0afc08724d";
         String url = "https://api.line.me/v2/bot/message/multicast";
 
-        String users = userIDs;
+        String users = "\""+userIDs + "\"";
 /*
         if(userIDs.contains(",")){
             String[] userArray = userIDs.split(",");
