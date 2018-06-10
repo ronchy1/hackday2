@@ -31,10 +31,30 @@ public class LOIRestController {
         this.restTemplate = new RestTemplate(this.factory);
     }
 
-    @RequestMapping(value="/test/{param1}")
-    public String test(@PathVariable("param1") String param1) {
+    @RequestMapping(value="/multicast/{userIDs}/{message}")
+    public String multicast(@PathVariable("userIDs") String userIDs, @PathVariable("message") String message) {
+        //String userIDs = "Ubac5b3a0bfba18e114afbc0afc08724d";
         String url = "https://api.line.me/v2/bot/message/multicast";
-        String msg = "{\"to\": [\"Ubac5b3a0bfba18e114afbc0afc08724d\"],\"messages\":[{\"type\":\"text\",\"text\":\"Hello, world1\"},{\"type\":\"text\",\"text\":\"Hello, world2\"}]}";
+
+        String users = userIDs;
+/*
+        if(userIDs.contains(",")){
+            String[] userArray = userIDs.split(",");
+            for(int i=0; i < userArray.length; i++){
+                String singleUser = userArray[i].trim();
+                String user = "\"" + singleUser + "\"";
+                if(i < userArray.length - 1){
+                    users = users + user + ",";
+                }else {
+                    users = users + user;
+                }
+            }
+        }else{
+            users = "\"" + userIDs + "\"";
+        }
+*/
+        //String msg = "{\"to\": [ "+users+" ],\"messages\":[{\"type\":\"text\",\"text\":\"Hello, world1\"},{\"type\":\"text\",\"text\":\"Hello, world2\"}]}";
+        String msg = "{\"to\": [ "+users+" ],\"messages\": [{\"type\":\"text\",\"text\":\"" +message+ "\"}]}";
         return send(url, msg);
     }
 
