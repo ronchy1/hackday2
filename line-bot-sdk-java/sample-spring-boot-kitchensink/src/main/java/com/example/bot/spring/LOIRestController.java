@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
@@ -38,7 +35,7 @@ public class LOIRestController {
     }
 
     @RequestMapping(value="/multicast", method = RequestMethod.POST)
-    public String multicast2(String userIDs, String message){
+    public String multicast2(@RequestParam("userIDs")  String userIDs, @RequestParam("message") String message){
         return doSend(userIDs, message);
     }
 
