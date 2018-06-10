@@ -6,6 +6,7 @@ import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -33,27 +34,20 @@ public class LOIRestController {
 
     @RequestMapping(value="/multicast/{userIDs}/{message}")
     public String multicast(@PathVariable("userIDs") String userIDs, @PathVariable("message") String message) {
+        return doSend(userIDs, message);
+    }
+
+    @RequestMapping(value="/multicast", method = RequestMethod.POST)
+    public String multicast2(String userIDs, String message){
+        return doSend(userIDs, message);
+    }
+
+    private String doSend(String userIDs, String message) {
         //String userIDs = "Ubac5b3a0bfba18e114afbc0afc08724d";
         String url = "https://api.line.me/v2/bot/message/multicast";
 
         String users = "\""+userIDs + "\"";
-/*
-        if(userIDs.contains(",")){
-            String[] userArray = userIDs.split(",");
-            for(int i=0; i < userArray.length; i++){
-                String singleUser = userArray[i].trim();
-                String user = "\"" + singleUser + "\"";
-                if(i < userArray.length - 1){
-                    users = users + user + ",";
-                }else {
-                    users = users + user;
-                }
-            }
-        }else{
-            users = "\"" + userIDs + "\"";
-        }
-*/
-        //String msg = "{\"to\": [ "+users+" ],\"messages\":[{\"type\":\"text\",\"text\":\"Hello, world1\"},{\"type\":\"text\",\"text\":\"Hello, world2\"}]}";
+
         String msg = "{\"to\": [ "+users+" ],\"messages\": [{\"type\":\"text\",\"text\":\"" +message+ "\"}]}";
         return send(url, msg);
     }
