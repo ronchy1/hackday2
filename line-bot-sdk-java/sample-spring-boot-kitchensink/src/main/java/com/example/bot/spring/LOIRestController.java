@@ -34,9 +34,15 @@ public class LOIRestController {
         return doSend(userIDs, message);
     }
 
-    @RequestMapping(value="/multicast", method = RequestMethod.POST)
+    @RequestMapping(value="/multicast2", method = RequestMethod.POST)
     public String multicast2(@RequestBody  MulticastPojo requestObj){
-        return doSend(requestObj.getUserIDs(), requestObj.getMessage());
+        try {
+            doSend(requestObj.getUserIDs(), requestObj.getMessage());
+            return "Success";
+        }catch(RuntimeException e){
+            e.printStackTrace();
+            return "Failed";
+        }
     }
 
     private String doSend(String userIDs, String message) {
