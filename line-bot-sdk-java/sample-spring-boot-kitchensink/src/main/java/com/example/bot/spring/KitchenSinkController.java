@@ -264,7 +264,7 @@ public class KitchenSinkController {
                 break;
             }
             case "report": {
-                String msg = "This fund is growth really fast!!!! http://47.52.202.223:81/documents/061009571649.html";
+                String msg = "The fund is growing rapidly. http://47.52.202.223:81/documents/061009571649.html";
                 this.replyText(replyToken, msg);
                 break;
             }
@@ -301,10 +301,10 @@ public class KitchenSinkController {
                                 new URIAction("Go to line.me",
                                               "https://line.me"),
                                 new PostbackAction("Say hello1",
-                                                   "hello こんにちは"),
-                                new PostbackAction("言 hello2",
-                                                   "hello こんにちは",
-                                                   "hello こんにちは"),
+                                                   "hello 您好"),
+                                new PostbackAction("hello2",
+                                                   "hello 您好",
+                                                   "hello 您好"),
                                 new MessageAction("Say message",
                                                   "Rice=米")
                         ));
@@ -325,12 +325,12 @@ public class KitchenSinkController {
                                                            "hello こんにちは")
                                 )),
                                 new CarouselColumn(imageUrl, "hoge", "fuga", Arrays.asList(
-                                        new PostbackAction("言 hello2",
-                                                           "hello こんにちは",
-                                                           "hello こんにちは"),
-                                        new PostbackAction("言 hello2",
-                                                "hello こんにちは",
-                                                "hello こんにちは"),
+                                        new PostbackAction(" hello2",
+                                                           "hello 您好",
+                                                           "hello 您好"),
+                                        new PostbackAction(" hello2",
+                                                "hello 您好",
+                                                "hello 您好"),
                                         new MessageAction("Say message",
                                                           "Rice=米")
                                 )),
@@ -372,9 +372,9 @@ public class KitchenSinkController {
                                                 "Rice=米")
                                 ),
                                 new ImageCarouselColumn(imageUrl,
-                                        new PostbackAction("言 hello2",
-                                                "hello こんにちは",
-                                                "hello こんにちは")
+                                        new PostbackAction(" hello2",
+                                                "hello 您好",
+                                                "hello 您好")
                                 )
                         ));
                 TemplateMessage templateMessage = new TemplateMessage("ImageCarousel alt text", imageCarouselTemplate);
