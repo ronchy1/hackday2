@@ -322,7 +322,7 @@ public class KitchenSinkController {
                                         new URIAction("Go to line.me",
                                                 "https://line.me"),
                                         new PostbackAction("Say hello1",
-                                                           "hello こんにちは")
+                                                           "hello 您好")
                                 )),
                                 new CarouselColumn(imageUrl, "hoge", "fuga", Arrays.asList(
                                         new PostbackAction(" hello2",
