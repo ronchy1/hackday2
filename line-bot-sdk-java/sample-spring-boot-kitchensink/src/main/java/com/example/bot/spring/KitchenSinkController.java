@@ -268,6 +268,19 @@ public class KitchenSinkController {
                 this.replyText(replyToken, msg);
                 break;
             }
+            case "こんにちは": {
+                int random = (int)(Math.random()*3);
+                String msg = "";
+                if (random == 0){
+                    msg = "何か御用でしょうか？";
+                } else if (random == 1) {
+                    msg = "こんにちは、私はあなたのために何ができますか？";
+                } else {
+                    msg = "はじめまして、どうぞよろしくお愿いします。";
+                }
+                this.replyText(replyToken, msg);
+                break;
+            }
             case "bye": {
                 Source source = event.getSource();
                 if (source instanceof GroupSource) {
