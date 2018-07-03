@@ -62,7 +62,7 @@ public class LOIRestController {
         //byte[] plainCredsBytes = plainCreds.getBytes();
         //byte[] base64CredsBytes = Base64.encodeBase64(plainCredsBytes);
         //String base64Creds = new String(base64CredsBytes);
-        String base64Creds = "wFlSTsGteS97Ja3QryV8RsNNp0kmK8uyHPrplr7IHmj4V4tn5uh+sk+nR4sR5wqrAbxT8hJTGO2T2UqVKqvcpqwvccun3/qdIAtkqkXkqJ7mP7/OabceMGQwy/bStUpOsa3Rv+ajxW0/SgdHXKO5UAdB04t89/1O/w1cDnyilFU=";
+        String base64Creds = "0iYxPHHm61NcVZNXGjH0DVYvRZ8H8wukys7WEvJ2e/P47SW+QITV/qpFOuLAfZADAbxT8hJTGO2T2UqVKqvcpqwvccun3/qdIAtkqkXkqJ577jxCYD+Cpf9jAmI4DplSx3VBAhPz3Ag6qrvXzU03BwdB04t89/1O/w1cDnyilFU=";
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Authorization", "Bearer " + base64Creds);
